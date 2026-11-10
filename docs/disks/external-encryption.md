@@ -118,7 +118,7 @@ Let's now try and mount this new file system, under `/mnt/storage`:
 
 ```sh
 sudo mkdir /mnt/storage
-sudo mount /dev/mapper/storage
+sudo mount /dev/mapper/storage /mnt/storage
 sudo ls /mnt/storage
 ```
 
@@ -131,9 +131,10 @@ drwxr-xr-x  5 root root  4.0K Apr  3 18:13 ..
 drwx------  2 root root   16K Apr  3  2021 lost+found
 ```
 
-At this point, we confirmed that we can access the content of the encrypted partition on our external disk. Let's unmount it and close the virtual block device by executing the following:
+At this point, we confirmed that we can access the content of the encrypted partition on our external disk. Let's now clean everything up: unmount it, close the virtual block device and delete the temporary `storage` directory, by executing the following:
 
 ```sh
 sudo umount /mnt/storage
 sudo cryptsetup close storage
+sudo rmdir /mnt/storage
 ```
