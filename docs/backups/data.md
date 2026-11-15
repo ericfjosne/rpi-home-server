@@ -110,7 +110,7 @@ fi
 
 # Perform the backup
 echo "Performing backup via rsync"
-rsync -azv $DRY_RUN --delete --exclude 'lost+found' /mnt/data/master/ $BACKUP_LOCATION/
+rsync -av $DRY_RUN --delete --exclude 'lost+found' /mnt/data/master/ $BACKUP_LOCATION/
 
 echo "Backup completed!"
 
